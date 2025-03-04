@@ -1,5 +1,5 @@
-import { test, expect } from '../src/fixtures/UITest.fixture';
-import testData from '../test-data/testData.json';
+import { test, expect } from '../../src/fixtures/UITest.fixture';
+import testData from '../../test-data/testData.json';
 
 test('Navigate', async ({ homePage, viewCartPage, loginPage, signUpPage, accountCreatedPage, page }) => {
   
@@ -21,6 +21,7 @@ test('Navigate', async ({ homePage, viewCartPage, loginPage, signUpPage, account
   await loginPage.signUp(testData.accountInformation.firstName, testData.accountInformation.email);
 
   //Create an account
+  await expect(page).toHaveURL('https://automationexercise.com/signup');
   await signUpPage.EnterAccountInformation(testData.accountInformation);
   await signUpPage.clickCreateAccount();
 
@@ -33,6 +34,11 @@ test('Navigate', async ({ homePage, viewCartPage, loginPage, signUpPage, account
   await expect(page).toHaveURL('https://automationexercise.com/');
   await expect(await homePage.getLoggedInUser()).toHaveText(testData.accountInformation.firstName);
 
+
+
+  //Delete account
+  await homePage.deleteAccount();
+  await expect(page.getByText('Account Deleted!')).toBeVisible();
 
 });
 

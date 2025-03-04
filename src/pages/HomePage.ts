@@ -8,6 +8,7 @@ export class HomePage {
     buttonAddCart1: Locator;
     buttonViewCart: Locator;
     menuButtonCart: Locator;
+    menuButtonDeleteAccount: Locator
 
 
     constructor(page: Page) {
@@ -16,6 +17,7 @@ export class HomePage {
         this.buttonAddCart1 = this.page.locator('[data-product-id="1"]').getByText('Add to cart').nth(2);
         this.buttonViewCart = this.page.getByText('View Cart');
         this.menuButtonCart = this.page.locator('[class="nav navbar-nav"]').locator('li').locator('a').locator('[class="fa fa-shopping-cart"]');
+        this.menuButtonDeleteAccount = this.page.locator('[class="nav navbar-nav"]').locator('li').locator('a').locator('[class="fa fa-trash-o"]');
     }
 
     async gotoHomePage() {
@@ -34,5 +36,10 @@ export class HomePage {
     async getLoggedInUser() {
         return this.page.locator('[class="nav navbar-nav"]').locator('li').locator('a').locator('b');
     }
+
+    async deleteAccount() {
+        await this.menuButtonDeleteAccount.click();
+    }
+
 }
 

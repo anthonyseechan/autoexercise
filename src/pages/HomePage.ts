@@ -9,6 +9,7 @@ export class HomePage {
     buttonViewCart: Locator;
     menuButtonCart: Locator;
     menuButtonDeleteAccount: Locator
+    buttonContinue: Locator;
 
 
     constructor(page: Page) {
@@ -18,6 +19,7 @@ export class HomePage {
         this.buttonViewCart = this.page.getByText('View Cart');
         this.menuButtonCart = this.page.locator('[class="nav navbar-nav"]').locator('li').locator('a').locator('[class="fa fa-shopping-cart"]');
         this.menuButtonDeleteAccount = this.page.locator('[class="nav navbar-nav"]').locator('li').locator('a').locator('[class="fa fa-trash-o"]');
+        this.buttonContinue = this.page.locator('[data-qa="continue-button"]');
     }
 
     async gotoHomePage() {
@@ -41,5 +43,12 @@ export class HomePage {
         await this.menuButtonDeleteAccount.click();
     }
 
+    async clickCart() {
+        await this.menuButtonCart.click();
+    }
+
+    async clickContinue() {
+        await this.buttonContinue.click();
+    }
 }
 

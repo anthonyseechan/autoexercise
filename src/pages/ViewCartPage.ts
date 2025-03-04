@@ -18,6 +18,7 @@ export class ViewCartPage {
     }
 
     async getProductDescription() {
+        await this.textProductDescription.waitFor();
         return this.textProductDescription;
     }
 

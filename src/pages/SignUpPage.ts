@@ -53,7 +53,8 @@ export class SignUpPage {
         state: string, 
         city: string, 
         zipcode: string, 
-        mobile: string
+        mobile: string,
+        comment: string
     }) {
         //await this.inputEmail.fill(data.email);
         await this.selectGender(data.gender);
@@ -73,11 +74,11 @@ export class SignUpPage {
 
     async selectGender(gender: string) {
         switch(gender) {
-            case 'male': 
+            case 'Mr.': 
             this.genderMale.click();
             break;
         
-            case 'female':
+            case 'Mrs.':
             this.genderFemale.click();
             break;
         }

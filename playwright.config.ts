@@ -34,19 +34,18 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    { 
+      name: 'setup',
+      testMatch: 'tests/setup/*.setup.ts', 
+    },
     {
-      name: 'chromium',
+      name: 'Main Test',
+      testMatch: [
+        'tests/main-tests/*.spec.ts', 
+      ],
+      dependencies: ['setup'],
       use: { ...devices['Desktop Chrome'] },
-    },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
     },
 
     /* Test against mobile viewports. */

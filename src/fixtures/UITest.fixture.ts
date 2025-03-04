@@ -4,6 +4,8 @@ import { ViewCartPage } from '../pages/ViewCartPage.ts';
 import { LoginPage } from '../pages/LoginPage.ts';
 import { SignUpPage } from '../pages/SignUpPage.ts';
 import { AccountCreatedPage } from '../pages/AccountCreatedPage.ts';
+import { CheckoutPage } from '../pages/CheckoutPage.ts';
+import { PaymentPage } from '../pages/PaymentPage.ts';
 
 type HomePageFixture = {
     homePage: HomePage;
@@ -11,6 +13,8 @@ type HomePageFixture = {
     loginPage: LoginPage;
     signUpPage: SignUpPage;
     accountCreatedPage: AccountCreatedPage;
+    checkoutPage: CheckoutPage;
+    paymentPage: PaymentPage;
 }
 
 export const test = base.extend<HomePageFixture>({
@@ -32,6 +36,14 @@ export const test = base.extend<HomePageFixture>({
 
     accountCreatedPage: async ({ page }, use) => {
         await use(new AccountCreatedPage(page));
+    },
+
+    checkoutPage: async ({ page }, use) => {    
+        await use(new CheckoutPage(page));
+    },
+
+    paymentPage: async ({ page }, use) => {   
+        await use(new PaymentPage(page));
     }
 });
 

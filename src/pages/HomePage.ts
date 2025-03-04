@@ -11,7 +11,6 @@ export class HomePage {
     menuButtonDeleteAccount: Locator
     buttonContinue: Locator;
 
-
     constructor(page: Page) {
         this.page = page;
         this.pictureProduct1 = this.page.locator('[src="/get_product_picture/1"]');

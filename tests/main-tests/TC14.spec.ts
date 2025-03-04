@@ -20,7 +20,6 @@ test('TC14 - User adds an order then registers to pay and complete the order', a
   await loginPage.signUp(userTestData[0].firstName, userTestData[0].email);
 
   //Create an account
-  //await signUpPage.EnterAccountInformation(testData.accountInformation);
   await signUpPage.EnterAccountInformation(userTestData[0]);
   await signUpPage.clickCreateAccount();
 

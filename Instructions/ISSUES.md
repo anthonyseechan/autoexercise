@@ -19,7 +19,7 @@ Feel free to add more details as necessary.
 ## Documented Issues
 
 - Issue 1:
-  - Description:
+  - Description: A lot of elements on the website under test do not use unique identifiers, making the automated test rigid
   - Found by:
   - Reproducible:
 
